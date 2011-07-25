@@ -1,0 +1,26 @@
+cmake_minimum_required(VERSION 2.6)
+
+project(vibe2modules)
+
+set(CMAKE_MODULE_PATH 
+  "${vibe2modules_SOURCE_DIR}/CMake"
+  "${vibe2modules_SOURCE_DIR}/CMake/Utils" 
+  "${vibe2modules_SOURCE_DIR}/CMake/Packages"
+)
+
+
+find_package(Boost 1.38.0 COMPONENTS python program_options date_time REQUIRED)
+find_package(PythonLibs REQUIRED)
+find_package(Qt4 COMPONENTS QtCore QtGui QtXml QtOpenGL REQUIRED)
+include(${QT_USE_FILE})
+include_directories(${Boost_INCLUDE_DIRS} ${QT_QTCORE_INCLUDE_DIR} ${PYTHON_INCLUDE_PATH})
+
+find_package(vibe2core)
+set(Boost_USE_STATIC_LIBS OFF)
+
+
+add_subdirectory(src/modules)
+
+
+
+

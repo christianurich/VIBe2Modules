@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svnroot/muparser/!svn/ver/40/build/bakefiles/presets
+END
+debugopt.bkl
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svnroot/muparser/!svn/ver/40/build/bakefiles/presets/debugopt.bkl
+END
+sharedopt.bkl
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svnroot/muparser/!svn/ver/40/build/bakefiles/presets/sharedopt.bkl
+END
+unicodeopt.bkl
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svnroot/muparser/!svn/ver/40/build/bakefiles/presets/unicodeopt.bkl
+END
+setbuilddir.bkl
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svnroot/muparser/!svn/ver/40/build/bakefiles/presets/setbuilddir.bkl
+END
