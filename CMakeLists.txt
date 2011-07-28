@@ -18,6 +18,8 @@ include_directories(${Boost_INCLUDE_DIRS} ${QT_QTCORE_INCLUDE_DIR} ${PYTHON_INCL
 find_package(vibe2core)
 set(Boost_USE_STATIC_LIBS OFF)
 
+set(LIBRARY_OUTPUT_PATH ${vibe2modules_BINARY_DIR})
+set(EXECUTABLE_OUTPUT_PATH ${vibe2modules_BINARY_DIR})
 
 add_subdirectory(src/modules)
 
