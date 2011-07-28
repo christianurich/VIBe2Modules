@@ -10,9 +10,9 @@ include_directories(${CMAKE_CURRENT_BINARY_DIR})
 include_directories(.)
 include_directories(${VIBE2CORE_INCLUDE_DIRS})
 
-add_library(vibe2modules  SHARED ${MODULE_CPPS})
+add_library(vibe2modules SHARED ${MODULE_CPPS})
 
-target_link_libraries(vibe2modules ${VIBE2CORELIBRARIES} ${QT_LIBRARIES})
+target_link_libraries(vibe2modules ${VIBE2CORE_LIBRARIES} ${VIBE2HELPER_LIBRARIES} ${QT_LIBRARIES})
 
 INSTALL(TARGETS vibe2modules
         DESTINATION "lib"
