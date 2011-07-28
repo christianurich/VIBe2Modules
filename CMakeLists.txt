@@ -11,7 +11,7 @@ set(CMAKE_MODULE_PATH
 
 find_package(Boost 1.38.0 COMPONENTS python program_options date_time REQUIRED)
 find_package(PythonLibs REQUIRED)
-find_package(Qt4 COMPONENTS QtCore QtGui QtXml QtOpenGL REQUIRED)
+find_package(Qt4 COMPONENTS QtCore QtGui QtXml REQUIRED)
 include(${QT_USE_FILE})
 include_directories(${Boost_INCLUDE_DIRS} ${QT_QTCORE_INCLUDE_DIR} ${PYTHON_INCLUDE_PATH})
 

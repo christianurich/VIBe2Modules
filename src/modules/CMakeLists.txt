@@ -13,3 +13,7 @@ include_directories(${VIBE2CORE_INCLUDE_DIRS})
 add_library(vibe2modules  SHARED ${MODULE_CPPS})
 
 target_link_libraries(vibe2modules ${VIBE2CORELIBRARIES} ${QT_LIBRARIES})
+
+INSTALL(TARGETS vibe2modules
+        DESTINATION "lib"
+        PERMISSIONS OWNER_READ OWNER_EXECUTE GROUP_READ GROUP_EXECUTE WORLD_READ WORLD_EXECUTE)
