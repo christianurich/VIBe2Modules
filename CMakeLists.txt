@@ -27,6 +27,8 @@ set(LIBRARY_OUTPUT_PATH ${vibe2modules_BINARY_DIR})
 set(EXECUTABLE_OUTPUT_PATH ${vibe2modules_BINARY_DIR})
 
 add_subdirectory(src/modules)
+add_subdirectory(scripts)
+
 
 
 
