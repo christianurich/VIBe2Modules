@@ -17,6 +17,7 @@ find_package(Qt4 COMPONENTS QtCore QtGui QtXml REQUIRED)
 include(${QT_USE_FILE})
 include_directories(${Boost_INCLUDE_DIRS} ${QT_QTCORE_INCLUDE_DIR} ${PYTHON_INCLUDE_PATH})
 
+
 find_package(vibe2core)
 
 
