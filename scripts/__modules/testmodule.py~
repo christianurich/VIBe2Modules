@@ -1,0 +1,31 @@
+from pyvibe import *
+import pyvibe
+from numpy import *
+from os import  *
+import pyvibehelper
+class Test(Module):
+        def __init__(self):
+            Module.__init__(self)
+            self.Vec = pyvibe.VectorDataIn
+            self.Vecout = pyvibe.VectorDataIn
+            self.addParameter(self, "Vec", VIBe2.VECTORDATA_IN)
+            self.addParameter(self, "Vecout", VIBe2.VECTORDATA_OUT)
+            
+    
+        def run(self):
+            vec = self.Vec.getItem()            
+            vecout = self.Vecout.getItem()
+            vecout.addVectorData(vec)
+            attr = pyvibe.Attribute()
+            attr.setAttribute("test", 1)
+            vecout.setAttributes("huh", attr)
+            names = vec.getAttributeNames()
+            print names
+            for i in range(len(names)):
+                print names[i]
+            names = pyvibehelper.findElementsWithIdentifier("GRID_", vec.getAttributeNames())
+            for i in range(len(names)):
+                print names[i]
+                
+
+

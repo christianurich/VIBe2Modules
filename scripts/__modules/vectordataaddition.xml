@@ -1,0 +1,11 @@
+<description>
+        <module name="VectorDataAddition" /> 
+  
+        <module filename="modules" />          
+        <parameter name ="Input" value="UserDefinedInputVectorData" />  
+	<parameter name ="Name" value="String" default="Lines" />   
+        <parameter name ="Flat" value="Bool" default="false" />   
+        <output VectorData="Output" />        
+
+
+</description>

@@ -1,0 +1,30 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Wed Jul 14 14:18:45 2010
+
+@author: c8451045
+"""
+
+from pyvibe import *
+
+
+class AppendCatchment(Module):
+        def __init__(self):
+            Module.__init__(self)  
+
+            self.topoElevation = RasterData
+            self.Population = RasterData
+            self.Catchments = VectorData()
+            self.MidPoints= VectorData()
+            self.addParameter(self, "topoElevation", VIBe2.RASTERDATA_IN)
+            self.addParameter(self, "Population", VIBe2.RASTERDATA_IN)
+            self.addParameter(self, "MidPoints", VIBe2.VECTORDATA_IN)
+            self.addParameter(self, "Catchments", VIBe2.VECTORDATA_OUT)
+            
+        def run(self):
+            names = self.MidPoints.getPointsNames()
+            for i in range(len(names)):
+                print names[i]
+                
+            
+            

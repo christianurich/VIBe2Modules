@@ -1,0 +1,28 @@
+from pyvibe import *
+import pyvibe
+from numpy import *
+from os import  *
+#from scipy import *
+
+class WhiteNoise2(Module):
+        def __init__(self):
+            Module.__init__(self)
+            self.Height = 200
+            self.Width = 200
+            self.CellSize = 20
+            self.RasterData = RasterDataIn
+            self.addParameter(self, "Height", VIBe2.LONG)
+            self.addParameter(self, "Width", VIBe2.LONG)
+            self.addParameter(self, "CellSize", VIBe2.DOUBLE)
+            self.addParameter(self, "RasterData", VIBe2.RASTERDATA_OUT)
+
+    
+        def run(self):
+            pyvibe.log("Run White Noise")
+            r = self.RasterData.getItem()
+            a = random.random((self.Width,self.Height))
+            r.setSize(self.Width, self.Height, self.CellSize)
+            for i in range(self.Width):
+                for j in range(self.Height):
+                    r.setValue(i,j,a[i,j])
+

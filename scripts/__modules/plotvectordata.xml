@@ -1,0 +1,21 @@
+<description>
+        <module name="PlotVectorData" />  
+	<module type="python" />    
+        <module filename="plotvectordata" /> 
+ 	<parameter name ="Input" value="UserDefinedInputVectorData" />
+	<parameter name ="Data" value="UserDefinedFormula" options ="withRulePrefix"/>
+	<parameter name ="PlotStyles" value="UserDefinedFormula" />   
+	<parameter name ="xlim"  value="String" default="" />  
+	<parameter name ="ylim"  value="String" default="" />  
+        <parameter name ="Many"  value="Bool" default="true" />    
+	<parameter name ="ColorHouse"  value="Bool" default="true" /> 
+	<parameter name ="ColorCityBlocks"  value="Bool" default="false" /> 
+	<parameter name ="ColorMapHouse"  value="StringList" default="Age Demand Stories House Err" /> 
+ 	<parameter name ="ColorMapCityBlock"  value="StringList" default="Landuse Population" /> 
+	<parameter name ="ShowFigure"  value="Bool" default="true" />   
+	<parameter name ="SaveToFile"  value="Bool" default="true" />      
+
+
+
+
+</description>

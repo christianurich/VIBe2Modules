@@ -1,0 +1,38 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Sat Sep 11 16:50:53 2010
+
+@author: c8451045
+"""
+
+from PyQt4 import QtCore, QtGui
+from pyvibe import *
+from guiplotraster_ui import Ui_Dialog
+
+
+class GUIPlotRaster(QtGui.QDialog):
+    def __init__(self, m, parent=None):
+        self.module = Module
+        self.module = m
+        QtGui.QDialog.__init__(self, parent)
+        self.ui = Ui_Dialog()
+        self.ui.setupUi(self)
+        QtCore.QObject.connect(self.ui.pushButton_addRaster,QtCore.SIGNAL("clicked()"), self.addRasterGUI)
+        self.updateRasterDataList()
+    def updateRasterDataList(self):
+        maps = self.module.getParameterAsString("RasterDataMap")
+        qmap = QtCore.QString(maps)
+        l = qmap.split("*|*")
+        print l
+        for s in l:
+            if (len(str(s)) != 0):
+                self.ui.listWidget_rasterdata.addItem(str(s))
+            
+
+    def addRasterGUI(self):
+        text, ok = QtGui.QInputDialog.getText(self, "Add RasterData", "Name:")
+        textAsString = str(text)
+        if len(textAsString) != 0:
+            self.module.appendToUserDefinedParameter("RasterDataMap", textAsString)
+            self.ui.listWidget_rasterdata.addItem(text)
+            
