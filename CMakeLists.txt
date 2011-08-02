@@ -9,8 +9,6 @@ set(CMAKE_MODULE_PATH
   "${vibe2modules_SOURCE_DIR}/CMake/Utils" 
   "${vibe2modules_SOURCE_DIR}/CMake/Packages"
 )
-
-
 find_package(Boost 1.38.0 COMPONENTS python program_options date_time REQUIRED)
 find_package(PythonLibs REQUIRED)
 find_package(Qt4 COMPONENTS QtCore QtGui QtXml REQUIRED)
