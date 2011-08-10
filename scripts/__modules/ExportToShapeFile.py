@@ -46,6 +46,8 @@ class ExportToShapeFile(Module):
                 self.addParameter(self, "vecin", VIBe2.VECTORDATA_IN)
                 
             def run(self):
+		#print "StartExporting" 
+		#print self.FileName 
                 if self.Points:
                     self.exportPoints()  
                 if self.Faces:                       
@@ -89,7 +91,7 @@ class ExportToShapeFile(Module):
                         for j in range(len(alist)):
                             hasAttribute = True                                  
                             if (alist[j] in AttributeList) == False:
-                                fielddef = osgeo.ogr.FieldDefn(alist[j], osgeo.ogr.OFTReal)
+                                fielddef = osgeo.ogr.FieldDefn(alist[j], osgeo.ogr.OFTString)
                                 layer.CreateField(fielddef)
                                 layerDefinition = layer.GetLayerDefn()  
                                 log(alist[j])
@@ -116,7 +118,9 @@ class ExportToShapeFile(Module):
                         #Append Attributes
                         if hasAttribute:        
                             for k in range(len(alist)):
-                                value = self.vecin.getItem().getAttributes(names[i]).getAttribute(alist[k])
+				#print alist[k]
+				#print self.vecin.getItem().getAttributes(names[i]).getStringAttribute(alist[k])
+                                value = self.vecin.getItem().getAttributes(names[i]).getStringAttribute(alist[k])
                                 feature.SetField(alist[k],value)
                         layer.CreateFeature(feature)    
                 shapeData.Destroy()               
@@ -137,7 +141,7 @@ class ExportToShapeFile(Module):
                 attr = []
                 hasAttribute = False
                 
-                fielddef = osgeo.ogr.FieldDefn("Z", osgeo.ogr.OFTReal)
+                fielddef = osgeo.ogr.FieldDefn("Z", osgeo.ogr.OFTString)
                 layer.CreateField(fielddef)
                 layerDefinition = layer.GetLayerDefn()  
                 AttributeList.append("Z") 
@@ -160,7 +164,7 @@ class ExportToShapeFile(Module):
                         for j in range(len(alist)):
                             hasAttribute = True                            
                             if (alist[j] in AttributeList) == False:
-                                fielddef = osgeo.ogr.FieldDefn(alist[j], osgeo.ogr.OFTReal)
+                                fielddef = osgeo.ogr.FieldDefn(alist[j], osgeo.ogr.OFTString)
                                 layer.CreateField(fielddef)
                                 layerDefinition = layer.GetLayerDefn()  
                                 log(alist[j])
@@ -177,11 +181,13 @@ class ExportToShapeFile(Module):
                         feature = osgeo.ogr.Feature(layerDefinition)
                         feature.SetGeometry(point)
                         feature.SetFID(featureIndex) 
-                        feature.SetField("Z", plist[j].getZ())
+                        feature.SetField("Z",str( plist[j].getZ()))
                         #Append Attributes
                         if hasAttribute:      
                             for k in range(len(alist)):
-                                value = self.vecin.getItem().getAttributes(names[i]).getAttribute(alist[k])
+				#print alist[k]
+				#print self.vecin.getItem().getAttributes(names[i]).getStringAttribute(alist[k])
+                                value = self.vecin.getItem().getAttributes(names[i]).getStringAttribute(alist[k])
                                 feature.SetField(alist[k],value)
                         layer.CreateFeature(feature)    
                 shapeData.Destroy()
@@ -218,7 +224,7 @@ class ExportToShapeFile(Module):
                         for j in range(len(alist)):
                             hasAttribute = True                                  
                             if (alist[j] in AttributeList) == False:
-                                fielddef = osgeo.ogr.FieldDefn(alist[j], osgeo.ogr.OFTReal)
+                                fielddef = osgeo.ogr.FieldDefn(alist[j], osgeo.ogr.OFTString)
                                 layer.CreateField(fielddef)
                                 layerDefinition = layer.GetLayerDefn()  
                                 log(alist[j])
@@ -245,7 +251,7 @@ class ExportToShapeFile(Module):
                         #Append Attributes
                         if hasAttribute:        
                             for k in range(len(alist)):
-                                value = self.vecin.getItem().getAttributes(names[i]).getAttribute(alist[k])
+                                value = self.vecin.getItem().getAttributes(names[i]).getStringAttribute(alist[k])
                                 feature.SetField(alist[k],value)
                         layer.CreateFeature(feature)    
                 shapeData.Destroy()               
