@@ -58,8 +58,8 @@ class CreateRasterGrid(Module):
             g = Attribute()
 	    g.setAttribute("Datatype", "GridData")
             vec.setAttributes("Globals", g)
-            for i in range(int(self.Width/self.CellSize)):
-                for j in range(int(self.Height/self.CellSize)):
+            for j in range(int(self.Height/self.CellSize)):
+                for i in range(int(self.Width/self.CellSize)):
                     centers = PointList()
                     center = Point((i+0.5) * self.CellSize, (j+0.5) * self.CellSize, 0)
                     centers.append(center)
