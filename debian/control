@@ -12,3 +12,4 @@ Package: vibe2modules
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: Basic Modules for the VIBe2 Framework
+

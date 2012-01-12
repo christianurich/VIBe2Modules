@@ -1,0 +1,18 @@
+<description>
+          <module name="IntersectVectorData" />
+          <module type="python" />    
+          <module filename="intersectvectordata" />  
+          
+          
+	  <parameter name = "X1" value="Double" default="4400" />
+	  <parameter name = "Y1" value="Double" default="1000" />
+	  <parameter name = "X2" value="Double" default="5400" />
+	  <parameter name = "Y2" value="Double" default="2000" />
+
+	  <parameter name ="Layer" value="String" default="Lines" />
+	  <parameter name ="LayerTo" value="String" default="Lines" />
+	  
+	  <input VectorData ="VectorData" edges="Lines" />
+	  <output VectorData ="VectorDataTo"  points="Points" edges="Lines" />
+
+</description>
