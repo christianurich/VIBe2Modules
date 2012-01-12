@@ -92,7 +92,9 @@ void CellularAutomata::run()  {
                 Parser * p=this->Rules.at(counter);
                 try
                 {
-                     *(this->RulesResults.at(counter)) =  p->Eval();
+                    double val =  p->Eval();
+
+                    *(this->RulesResults.at(counter)) = val;
                 } catch (Parser::exception_type &e)
                 {
                      Logger(Error) << p->GetExpr()  ;
@@ -181,7 +183,7 @@ void CellularAutomata::initRuntime() {
         Parser * p = new Parser();
         mu::addCorineConstants(p);
         p->DefineFun("nov", numberOfValues);
-        p->DefineFun("rand", random);
+        p->DefineFun("rand", random, false);
         //Replace Names
         BOOST_FOREACH(std::string neigh, NeighboorhoodList) {
             int elements = NeighboohoodDimensions[neigh].elements;
@@ -206,7 +208,7 @@ void CellularAutomata::initRuntime() {
     //Define Descision
     Desicion = new Parser();
     Desicion->DefineFun("nov", numberOfValues);
-    Desicion->DefineFun("rand", random);
+    Desicion->DefineFun("rand", random, false);
     mu::addCorineConstants(Desicion);
     int i = 0;
     for(std::map<std::string, std::string>::iterator it = param.rules.begin(); it != param.rules.end(); ++it) {

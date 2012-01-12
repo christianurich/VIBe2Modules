@@ -136,7 +136,7 @@ void Marker::initRExpression () {
 
     p->DefineVar("CellValue", this->CellValue);
     p->DefineFun("nov", mu::numberOfValues);
-    p->DefineFun("rand", mu::random);
+    p->DefineFun("rand", mu::random), false;
     p->SetExpr(param.RExpression);
     RExpression = p;
 
@@ -228,7 +228,7 @@ void Marker::initrExpression () {
     }
 
     p->DefineFun("nov", mu::numberOfValues);
-    p->DefineFun("rand", mu::random);
+    p->DefineFun("rand", mu::random, false);
     p->DefineVar("r", r);
     p->DefineVar("R", R);
     p->DefineVar("CellValue", this->CellValue);
@@ -276,14 +276,14 @@ void Marker::run() {
     }
     rExpression->DefineVar("R", R);
     rExpression->DefineVar("r", r);
-    rExpression->DefineFun("rand", mu::random);
+    rExpression->DefineFun("rand", mu::random, false);
     rExpression->DefineVar("Value", V);
     RExpression->DefineVar("Value", V);
-    RExpression->DefineFun("rand", mu::random);
+    RExpression->DefineFun("rand", mu::random, false);
     maxExpression->DefineVar("R", R);
     maxExpression->DefineVar("r", r);
     maxExpression->DefineVar("Value", V);
-    maxExpression->DefineFun("rand", mu::random);
+    maxExpression->DefineFun("rand", mu::random, false);
     //Set Expressions
     rExpression->SetExpr(param.rExpression);
     RExpression->SetExpr(param.RExpression);

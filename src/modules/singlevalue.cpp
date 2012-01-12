@@ -30,6 +30,7 @@
 #include <QStringList>
 #include <QThread>
 #include "guisinglevalue.h"
+#include "userdefinedfunctions.h"
 
 VIBe_DECLARE_NODE_NAME ( SingleValue, Modules )
 SingleValue::SingleValue()
@@ -52,7 +53,7 @@ void SingleValue::run() {
         this->FirstTime = false;
         this->Expression = mu::Parser();
         this->Expression.DefineVar("repeater", this->repeater);
-
+        this->Expression.DefineFun("rand", mu::random, false);
         //Create Varaibles
         for (std::map<std::string, double>::iterator it = param.VariablesFromOutside.begin(); it != param.VariablesFromOutside.end(); ++it) {
             //Check if Parameter Exists
